@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+.env
+
+# Build files
+dist/
+build/
+.next/
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-*
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Testing
+coverage/
+
+# Misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Uploads
+uploads/
+public/uploads/
+
+# Cache
+.cache/
+.npm/

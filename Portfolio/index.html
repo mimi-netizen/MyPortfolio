@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="John Doe - Frontend Developer Portfolio showcasing web development projects and skills" />
+    <meta name="keywords" content="frontend developer, web development, portfolio, JavaScript, React" />
+    <meta name="author" content="John Doe" />
+    <title>John Doe | Frontend Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              poppins: ['Poppins', 'sans-serif'],
+            },
+            colors: {
+              primary: 'rgb(53, 53, 53)',
+              secondary: 'rgb(85, 85, 85)'
+            }
+          }
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  </head>
+  <body class="font-poppins bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+    
+    <nav class="fixed top-0 w-full bg-white dark:bg-gray-900 shadow-md z-50 py-4">
+      <div class="container mx-auto px-4 flex justify-between items-center">
+        <h1 class="text-xl md:text-2xl font-bold">John Doe</h1>
+        <div class="flex items-center gap-4 md:gap-8">
+          <!-- Theme Toggle Button -->
+          <button 
+            onclick="toggleTheme()" 
+            class="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+            aria-label="Toggle dark mode"
+          >
+            <!-- Sun icon -->
+            <svg class="w-6 h-6 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
+            <!-- Moon icon -->
+            <svg class="w-6 h-6 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+            </svg>
+          </button>
+          <!-- Desktop Menu -->
+          <ul class="hidden md:flex space-x-4 lg:space-x-8">
+            <li><a href="#about" class="hover:text-gray-600 transition-colors">About</a></li>
+            <li><a href="#experience" class="hover:text-gray-600 transition-colors">Experience</a></li>
+            <li><a href="#projects" class="hover:text-gray-600 transition-colors">Projects</a></li>
+            <li><a href="#contact" class="hover:text-gray-600 transition-colors">Contact</a></li>
+          </ul>
+          <!-- Mobile Menu Button -->
+          <button class="md:hidden" onclick="toggleMenu()">
+            <div class="hamburger-icon w-6 h-6 flex flex-col justify-between">
+              <span class="block w-full h-0.5 bg-current"></span>
+              <span class="block w-full h-0.5 bg-current"></span>
+              <span class="block w-full h-0.5 bg-current"></span>
+            </div>
+          </button>
+        </div>
+      </div>
+      <!-- Mobile Menu Panel -->
+      <div id="mobile-menu" class="md:hidden absolute top-full left-0 w-full bg-white dark:bg-gray-900 shadow-lg transform -translate-y-full transition-transform duration-300">
+        <ul class="py-4 px-6 space-y-4">
+          <li><a href="#about" class="block hover:text-gray-600 transition-colors" onclick="toggleMenu()">About</a></li>
+          <li><a href="#experience" class="block hover:text-gray-600 transition-colors" onclick="toggleMenu()">Experience</a></li>
+          <li><a href="#projects" class="block hover:text-gray-600 transition-colors" onclick="toggleMenu()">Projects</a></li>
+          <li><a href="#contact" class="block hover:text-gray-600 transition-colors" onclick="toggleMenu()">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section id="profile" class="min-h-screen flex flex-col md:flex-row items-center justify-center gap-8 mt-20 px-4 md:px-10">
+      <div class="w-64 h-64 md:w-96 md:h-96 relative bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+        <img 
+          src="./assets/profile-pic.png" 
+          alt="John Doe profile picture" 
+          class="w-full h-full object-cover"
+          onerror="this.onerror=null; this.src='https://via.placeholder.com/400x400?text=Profile'"
+        />
+      </div>
+      <div class="text-center md:text-left max-w-lg">
+        <p class="text-gray-600 dark:text-gray-400 text-lg animate-fade-in">Hello, I'm</p>
+        <h1 class="text-4xl md:text-6xl font-bold my-4 animate-fade-in">John Doe</h1>
+        <p class="section__text__p2 text-2xl text-gray-700 dark:text-gray-300 mb-6 animate-fade-in">Frontend Developer</p>
+        <div class="flex gap-4 justify-center md:justify-start">
+          <button onclick="window.open('./assets/resume-example.pdf')" 
+            class="px-6 py-3 rounded-full border-2 border-gray-800 dark:border-white hover:bg-gray-800 hover:text-white dark:hover:bg-white dark:hover:text-gray-800 transition-all">
+            Download CV
+          </button>
+          <button onclick="location.href='./#contact'"
+            class="px-6 py-3 rounded-full bg-gray-800 text-white dark:bg-white dark:text-gray-800 hover:bg-gray-900 dark:hover:bg-gray-100 transition-all">
+            Contact Info
+          </button>
+        </div>
+        <div class="flex gap-4 mt-6 justify-center md:justify-start">
+          <a href="https://linkedin.com/" class="hover:opacity-80 transition-opacity">
+            <img src="./assets/linkedin.png" alt="LinkedIn" class="w-8 h-8" 
+              onerror="this.onerror=null; this.src='https://via.placeholder.com/32x32?text=IN'" />
+          </a>
+          <a href="https://github.com/" class="hover:opacity-80 transition-opacity">
+            <img src="./assets/github.png" alt="GitHub" class="w-8 h-8"
+              onerror="this.onerror=null; this.src='https://via.placeholder.com/32x32?text=GH'" />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="py-20 px-4 md:px-10">
+      <div class="max-w-6xl mx-auto">
+        <p class="text-center text-gray-600 dark:text-gray-400">Get To Know More</p>
+        <h2 class="text-4xl font-bold text-center mb-12">About Me</h2>
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="aspect-square max-w-md mx-auto">
+            <img src="./assets/about-pic.png" alt="Profile picture" class="rounded-3xl w-full h-full object-cover" />
+          </div>
+          <div class="space-y-8">
+            <div class="grid grid-cols-2 gap-4">
+              <div class="p-6 rounded-2xl border border-gray-200 dark:border-gray-700 text-center">
+                <img src="./assets/experience.png" alt="Experience" class="w-8 h-8 mx-auto mb-2" />
+                <h3 class="font-semibold mb-1">Experience</h3>
+                <p class="text-gray-600 dark:text-gray-400">2+ years<br/>Frontend Development</p>
+              </div>
+              <div class="p-6 rounded-2xl border border-gray-200 dark:border-gray-700 text-center">
+                <img src="./assets/education.png" alt="Education" class="w-8 h-8 mx-auto mb-2" />
+                <h3 class="font-semibold mb-1">Education</h3>
+                <p class="text-gray-600 dark:text-gray-400">B.Sc. Bachelors Degree<br/>M.Sc. Masters Degree</p>
+              </div>
+            </div>
+            <p class="text-gray-600 dark:text-gray-400 text-justify">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quis reprehenderit et laborum, rem, dolore eum quod voluptate exercitationem nobis, nihil esse debitis maxime facere minus sint delectus velit in eos quo officiis explicabo deleniti dignissimos.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="py-12 md:py-20 px-4 md:px-10">
+      <div class="max-w-6xl mx-auto">
+        <p class="text-center text-gray-600 dark:text-gray-400">Explore My</p>
+        <h2 class="text-4xl font-bold text-center mb-12">Experience</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+          <!-- Frontend Skills -->
+          <div class="p-6 rounded-2xl border border-gray-200 dark:border-gray-700">
+            <h3 class="text-2xl font-semibold mb-6">Frontend Development</h3>
+            <div class="grid grid-cols-2 gap-4">
+              <!-- Skill items -->
+              <div class="flex items-center gap-2">
+                <img src="./assets/checkmark.png" alt="checkmark" class="w-6 h-6" />
+                <div>
+                  <h4 class="font-medium">HTML</h4>
+                  <p class="text-gray-600 dark:text-gray-400 text-sm">Experienced</p>
+                </div>
+              </div>
+              <!-- Repeat for other frontend skills -->
+            </div>
+            <div class="flex items-center gap-2 mb-4">
+              <div class="flex-1">
+                <div class="flex justify-between mb-1">
+                  <span class="font-medium">HTML & CSS</span>
+                  <span>95%</span>
+                </div>
+                <div class="h-2 bg-gray-200 rounded-full">
+                  <div class="h-full bg-blue-600 rounded-full" style="width: 95%" data-aos="width"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Backend Skills -->
+          <div class="p-6 rounded-2xl border border-gray-200 dark:border-gray-700">
+            <h3 class="text-2xl font-semibold mb-6">Backend Development</h3>
+            <div class="grid grid-cols-2 gap-4">
+              <!-- Skill items -->
+              <div class="flex items-center gap-2">
+                <img src="./assets/checkmark.png" alt="checkmark" class="w-6 h-6" />
+                <div>
+                  <h4 class="font-medium">Node.js</h4>
+                  <p class="text-gray-600 dark:text-gray-400 text-sm">Intermediate</p>
+                </div>
+              </div>
+              <!-- Repeat for other backend skills -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="py-12 md:py-20 px-4 md:px-10 bg-gray-50 dark:bg-gray-800">
+      <div class="max-w-6xl mx-auto">
+        <p class="text-center text-gray-600 dark:text-gray-400">Browse My Recent</p>
+        <h2 class="text-4xl font-bold text-center mb-12">Projects</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <!-- Project Card 1 -->
+          <div class="bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg transition-transform hover:scale-105">
+            <div class="aspect-video">
+              <img src="./assets/project-1.png" alt="Project 1" class="w-full h-full object-cover" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-4">Project One</h3>
+              <div class="flex gap-4">
+                <a href="https://github.com/" class="px-4 py-2 rounded-full border border-gray-800 dark:border-white hover:bg-gray-800 hover:text-white dark:hover:bg-white dark:hover:text-gray-800 transition-colors">
+                  Github
+                </a>
+                <a href="#" class="px-4 py-2 rounded-full border border-gray-800 dark:border-white hover:bg-gray-800 hover:text-white dark:hover:bg-white dark:hover:text-gray-800 transition-colors">
+                  Live Demo
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Repeat for other projects -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 px-4 md:px-10 bg-gray-50 dark:bg-gray-800">
+      <div class="max-w-6xl mx-auto">
+        <p class="text-center text-gray-600 dark:text-gray-400">What Others Say</p>
+        <h2 class="text-4xl font-bold text-center mb-12">Testimonials</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg">
+            <div class="flex items-center mb-4">
+              <img src="./assets/testimonial1.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
+              <div>
+                <h4 class="font-semibold">Jane Smith</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400">CEO, TechCorp</p>
+              </div>
+            </div>
+            <p class="text-gray-600 dark:text-gray-400">"Exceptional work! Delivered the project on time and exceeded our expectations."</p>
+          </div>
+          <!-- Add more testimonials -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-20 px-4 md:px-10">
+      <div class="max-w-6xl mx-auto">
+        <p class="text-center text-gray-600 dark:text-gray-400">Latest Articles</p>
+        <h2 class="text-4xl font-bold text-center mb-12">My Blog</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <article class="bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg">
+            <img src="./assets/blog1.jpg" alt="Blog post" class="w-full h-48 object-cover">
+            <div class="p-6">
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">March 15, 2024</p>
+              <h3 class="text-xl font-semibold mb-2">Getting Started with React</h3>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">A beginner's guide to React development...</p>
+              <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">Read More →</a>
+            </div>
+          </article>
+          <!-- Add more blog posts -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Filters -->
+    <div class="flex justify-center gap-4 mb-8">
+      <button onclick="filterProjects('all')" class="px-4 py-2 rounded-full border border-gray-800 dark:border-white hover:bg-gray-800 hover:text-white dark:hover:bg-white dark:hover:text-gray-800 transition-colors">
+        All
+      </button>
+      <button onclick="filterProjects('web')" class="px-4 py-2 rounded-full border border-gray-800 dark:border-white hover:bg-gray-800 hover:text-white dark:hover:bg-white dark:hover:text-gray-800 transition-colors">
+        Web
+      </button>
+      <button onclick="filterProjects('app')" class="px-4 py-2 rounded-full border border-gray-800 dark:border-white hover:bg-gray-800 hover:text-white dark:hover:bg-white dark:hover:text-gray-800 transition-colors">
+        App
+      </button>
+    </div>
+
+    <section id="contact" class="py-20 px-4 md:px-10">
+      <div class="max-w-6xl mx-auto">
+        <p class="text-center text-gray-600 dark:text-gray-400">Get in Touch</p>
+        <h2 class="text-4xl font-bold text-center mb-12">Contact Me</h2>
+        <div class="max-w-xl mx-auto">
+          <form id="contact-form" action="https://formspree.io/f/mdkeqolw" method="POST" class="space-y-6">
+            <input type="text" name="name" placeholder="Your Name" required 
+              class="w-full p-4 rounded-lg border border-gray-300 dark:border-gray-700 dark:bg-gray-800 focus:ring-2 focus:ring-gray-400">
+            <input type="email" name="email" placeholder="Your Email" required 
+              class="w-full p-4 rounded-lg border border-gray-300 dark:border-gray-700 dark:bg-gray-800 focus:ring-2 focus:ring-gray-400">
+            <textarea name="message" placeholder="Your Message" required rows="6"
+              class="w-full p-4 rounded-lg border border-gray-300 dark:border-gray-700 dark:bg-gray-800 focus:ring-2 focus:ring-gray-400"></textarea>
+            <button type="submit" 
+              class="px-8 py-3 rounded-full bg-gray-800 text-white dark:bg-white dark:text-gray-800 hover:bg-gray-900 dark:hover:bg-gray-100 transition-all">
+              Send Message
+            </button>
+          </form>
+        </div>
+        
+      </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white dark:bg-gray-900">
+      <div class="max-w-6xl mx-auto px-4 py-8 md:py-12">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+          <div class="space-y-4">
+            <h3 class="text-xl font-bold">John Doe</h3>
+            <p class="text-gray-300">Frontend Developer based in New York, specializing in building exceptional digital experiences.</p>
+            <div class="flex gap-4">
+              <a href="https://github.com/" class="text-2xl hover:text-gray-300 transition-colors">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://linkedin.com/" class="text-2xl hover:text-gray-300 transition-colors">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="https://twitter.com/" class="text-2xl hover:text-gray-300 transition-colors">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li><a href="#about" class="hover:text-gray-300 transition-colors">About</a></li>
+              <li><a href="#experience" class="hover:text-gray-300 transition-colors">Experience</a></li>
+              <li><a href="#projects" class="hover:text-gray-300 transition-colors">Projects</a></li>
+              <li><a href="#contact" class="hover:text-gray-300 transition-colors">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Newsletter</h3>
+            <form id="newsletter-form" class="flex gap-2">
+              <input type="email" placeholder="Enter your email" required 
+                class="flex-1 p-2 rounded bg-gray-700 dark:bg-gray-800 focus:ring-2 focus:ring-gray-400">
+              <button type="submit" 
+                class="px-4 py-2 bg-white text-gray-800 rounded hover:bg-gray-100 transition-colors">
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="border-t border-gray-700 pt-8 text-center">
+          <p>Copyright © <span id="current-year"></span> John Doe. All Rights Reserved.</p>
+          <a href="admin/login.html" class="text-sm text-gray-400 hover:text-gray-300 mt-2 inline-block">Admin Login</a>
+        </div>
+      </div>
+      <button id="back-to-top" 
+        class="fixed bottom-8 right-8 bg-gray-800 text-white dark:bg-white dark:text-gray-800 w-12 h-12 rounded-full opacity-0 transition-opacity hover:bg-gray-700 dark:hover:bg-gray-100">
+        ↑
+      </button>
+    </footer>
+
+    <!-- Chat Widget -->
+    <div id="chat-widget" class="fixed bottom-8 right-8 z-40">
+      <!-- Chat Button -->
+      <button id="chat-toggle" class="bg-blue-500 hover:bg-blue-600 text-white rounded-full p-4 shadow-lg transition-all transform hover:scale-110">
+        <svg class="w-6 h-6 open-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
+        </svg>
+        <svg class="w-6 h-6 close-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+      
+      <!-- Chat Panel -->
+      <div id="chat-panel" class="hidden absolute bottom-20 right-0 w-80 md:w-96 bg-white dark:bg-gray-800 rounded-lg shadow-xl">
+        <div class="p-4 border-b dark:border-gray-700">
+          <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Chat with me</h3>
+        </div>
+        <div id="chat-messages" class="h-80 overflow-y-auto p-4 space-y-4">
+          <div class="flex flex-col">
+            <div class="bg-blue-100 dark:bg-gray-700 rounded-lg p-3 max-w-[80%] self-start">
+              <p class="text-sm text-gray-800 dark:text-white">Hi there! How can I help you today?</p>
+            </div>
+          </div>
+        </div>
+        <div class="p-4 border-t dark:border-gray-700">
+          <form id="chat-form" class="space-y-2">
+            <div class="flex gap-2">
+              <input type="text" id="chat-input" 
+                class="flex-1 p-2 rounded border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-blue-500" 
+                placeholder="Type your message...">
+              <label for="chat-file" class="p-2 rounded bg-gray-100 dark:bg-gray-700 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
+                </svg>
+              </label>
+              <input type="file" id="chat-file" class="hidden" accept="image/*,.pdf,.doc,.docx">
+              <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
+                Send
+              </button>
+            </div>
+            <div id="file-preview" class="hidden">
+              <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+                <span id="file-name"></span>
+                <button type="button" onclick="removeFile()" class="text-red-500 hover:text-red-600">
+                  ×
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/7cc771f57f.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

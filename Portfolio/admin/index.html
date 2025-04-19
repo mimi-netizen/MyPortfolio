@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat Admin Panel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900">
+    <div class="min-h-screen">
+        <nav class="bg-white dark:bg-gray-800 shadow-md">
+            <div class="max-w-7xl mx-auto px-4 py-3">
+                <div class="flex justify-between items-center">
+                    <h1 class="text-xl font-semibold">Chat Administration</h1>
+                    <button id="logout" class="text-red-600 hover:text-red-700">Logout</button>
+                </div>
+            </div>
+        </nav>
+
+        <main class="max-w-7xl mx-auto px-4 py-8">
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Active Chats -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+                    <h2 class="text-lg font-semibold mb-4">Active Conversations</h2>
+                    <div id="active-chats" class="space-y-4"></div>
+                </div>
+
+                <!-- Chat History -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+                    <h2 class="text-lg font-semibold mb-4">Chat History</h2>
+                    <div id="chat-history" class="space-y-4 max-h-[600px] overflow-y-auto"></div>
+                </div>
+            </div>
+
+            <!-- Analytics -->
+            <div class="mt-8 bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+                <h2 class="text-lg font-semibold mb-4">Analytics</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="p-4 bg-blue-50 dark:bg-gray-700 rounded-lg">
+                        <h3 class="font-medium">Total Chats</h3>
+                        <p id="total-chats" class="text-2xl font-bold mt-2">0</p>
+                    </div>
+                    <div class="p-4 bg-green-50 dark:bg-gray-700 rounded-lg">
+                        <h3 class="font-medium">Response Rate</h3>
+                        <p id="response-rate" class="text-2xl font-bold mt-2">0%</p>
+                    </div>
+                    <div class="p-4 bg-purple-50 dark:bg-gray-700 rounded-lg">
+                        <h3 class="font-medium">Average Response Time</h3>
+                        <p id="avg-response-time" class="text-2xl font-bold mt-2">0m</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="admin.js"></script>
+</body>
+</html>
