@@ -1,22 +1,15 @@
 const express = require('express');
-const http = require('http');
-const WebSocket = require('ws');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const jwt = require('jsonwebtoken');
-const connectDB = require('./config/db');
-const wsManager = require('./utils/wsManager');
 const path = require('path');
+const WebSocket = require('ws');
 require('dotenv').config();
 
 const app = express();
-const server = http.createServer(app);
-const wss = new WebSocket.Server({ server });
 
+// Middleware
 app.use(cors());
 app.use(express.json());
-
-// Serve static files from Portfolio directory
 app.use(express.static(path.join(__dirname, '../Portfolio')));
 
 // MongoDB Connection
@@ -27,57 +20,45 @@ mongoose.connect(process.env.MONGO_URI, {
 .then(() => console.log('MongoDB Connected'))
 .catch(err => console.error('MongoDB Connection Error:', err));
 
-// Serve admin files
-app.use('/admin', express.static(path.join(__dirname, '../Portfolio/admin')));
+// Create HTTP server
+const server = require('http').createServer(app);
 
-// Serve uploaded files
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-
-// Handle admin routes
-app.get('/admin/*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../Portfolio/admin/index.html'));
-});
+// Initialize WebSocket server
+const wss = new WebSocket.Server({ server });
 
 // WebSocket connection handling
-wss.on('connection', async (ws, req) => {
-  try {
-    const token = req.url.split('token=')[1];
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    const userId = decoded.id;
+wss.on('connection', (ws) => {
+  console.log('New WebSocket connection');
 
-    wsManager.addClient(userId, ws);
-
-    ws.on('message', async (message) => {
+  ws.on('message', (message) => {
+    try {
       const data = JSON.parse(message);
-      switch (data.type) {
-        case 'typing':
-          wsManager.broadcast({ type: 'typing', userId }, userId);
-          break;
-        case 'message':
-          // Save message to database
-          const newMessage = await Message.create({
-            sender: userId,
-            content: data.text
-          });
-          wsManager.broadcast({
-            type: 'message',
-            message: newMessage
-          });
-          break;
-      }
-    });
+      console.log('Received:', data);
 
-    ws.on('close', () => {
-      wsManager.removeClient(userId);
-    });
-  } catch (error) {
-    ws.close();
-  }
+      // Broadcast to all clients
+      wss.clients.forEach((client) => {
+        if (client !== ws && client.readyState === WebSocket.OPEN) {
+          client.send(JSON.stringify(data));
+        }
+      });
+    } catch (error) {
+      console.error('WebSocket message error:', error);
+    }
+  });
+
+  // Send welcome message
+  ws.send(JSON.stringify({
+    type: 'message',
+    text: 'Welcome! How can I help you today?'
+  }));
 });
 
 // Routes
-app.use('/api/chat', require('./routes/chat'));
 app.use('/api/auth', require('./routes/auth'));
+app.use('/api/chat', require('./routes/chat'));
 
+// Start server
 const PORT = process.env.PORT || 5000;
-server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+server.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});

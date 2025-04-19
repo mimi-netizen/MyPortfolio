@@ -349,9 +349,11 @@
     </footer>
 
     <!-- Chat Widget -->
-    <div id="chat-widget" class="fixed bottom-8 right-8 z-40">
+    <div id="chat-widget" class="fixed bottom-8 right-8 z-[1000]">
       <!-- Chat Button -->
-      <button id="chat-toggle" class="bg-blue-500 hover:bg-blue-600 text-white rounded-full p-4 shadow-lg transition-all transform hover:scale-110">
+      <button id="chat-toggle" 
+        type="button"
+        class="bg-blue-500 hover:bg-blue-600 text-white rounded-full p-4 shadow-lg transition-all transform hover:scale-110 focus:outline-none z-[1000]">
         <svg class="w-6 h-6 open-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
         </svg>
@@ -361,7 +363,7 @@
       </button>
       
       <!-- Chat Panel -->
-      <div id="chat-panel" class="hidden absolute bottom-20 right-0 w-80 md:w-96 bg-white dark:bg-gray-800 rounded-lg shadow-xl">
+      <div id="chat-panel" class="absolute bottom-20 right-0 w-80 md:w-96 bg-white dark:bg-gray-800 rounded-lg shadow-xl z-[1001]">
         <div class="p-4 border-b dark:border-gray-700">
           <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Chat with me</h3>
         </div>
