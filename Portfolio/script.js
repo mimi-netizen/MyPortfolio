@@ -206,8 +206,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const openIcon = chat.toggle.querySelector(".open-icon");
     const closeIcon = chat.toggle.querySelector(".close-icon");
     
-    openIcon.classList.toggle("hidden");
-    closeIcon.classList.toggle("hidden");
+    // Invert the logic: show message icon when panel is visible
+    openIcon.classList.toggle("hidden", !chat.panel.classList.contains("hidden"));
+    closeIcon.classList.toggle("hidden", chat.panel.classList.contains("hidden"));
 
     if (!chat.panel.classList.contains("hidden")) {
       chat.input.focus();
