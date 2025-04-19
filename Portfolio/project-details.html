@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details | Celyne Kydd</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              poppins: ['Poppins', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="font-poppins bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white dark:bg-gray-900 shadow-md z-50 py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <h1 class="text-xl md:text-2xl font-bold">Celyne Kydd</h1>
+            <div class="flex items-center gap-4 md:gap-8">
+                <button onclick="toggleTheme()" 
+                    class="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                    aria-label="Toggle dark mode">
+                    <!-- Theme toggle icons -->
+                    <svg class="w-6 h-6 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                    </svg>
+                    <svg class="w-6 h-6 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                    </svg>
+                </button>
+                <a href="index.html" class="hover:text-gray-600 transition-colors">Back to Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-24 px-4 md:px-10 min-h-screen">
+        <div class="max-w-4xl mx-auto">
+            <!-- Back button -->
+            <a href="projects.html" class="inline-block mb-8 text-blue-600 dark:text-blue-400 hover:underline">
+                ← Back to Projects
+            </a>
+
+            <div id="project-content" class="space-y-8">
+                <!-- Loading skeleton -->
+                <div class="animate-pulse">
+                    <div class="h-8 bg-gray-200 dark:bg-gray-700 rounded w-3/4 mb-4"></div>
+                    <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/2 mb-8"></div>
+                    <div class="aspect-video bg-gray-200 dark:bg-gray-700 rounded mb-8"></div>
+                    <div class="space-y-4">
+                        <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded w-full"></div>
+                        <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded w-5/6"></div>
+                        <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded w-4/6"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project navigation -->
+            <div class="flex justify-between items-center mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+                <button id="prev-project" class="px-4 py-2 text-blue-600 dark:text-blue-400 hover:underline">
+                    ← Previous Project
+                </button>
+                <button id="next-project" class="px-4 py-2 text-blue-600 dark:text-blue-400 hover:underline">
+                    Next Project →
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white dark:bg-gray-900 mt-20">
+        <div class="max-w-6xl mx-auto px-4 py-8">
+            <div class="text-center">
+                <p>Copyright © <span id="current-year"></span> Celyne Kydd. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
