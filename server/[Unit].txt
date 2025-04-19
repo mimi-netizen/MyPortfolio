@@ -1,0 +1,20 @@
+[Unit]
+Description=MongoDB Database Service
+Documentation=https://docs.mongodb.org/manual
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=mongodb
+Group=mongodb
+Type=forking
+ExecStart=/usr/bin/mongod --config /etc/mongod.conf
+PIDFile=/var/run/mongodb/mongod.pid
+LimitFSIZE=infinity
+LimitCPU=infinity
+LimitAS=infinity
+LimitNOFILE=64000
+LimitNPROC=64000
+
+[Install]
+WantedBy=multi-user.target
