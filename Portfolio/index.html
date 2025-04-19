@@ -230,7 +230,7 @@
         
         <!-- Currently Working On -->
         <div class="mb-16">
-          <h3 class="text-2xl font-semibold mb-8">Currently Working On</h3>
+          <h3 class="text-2xl text-center font-semibold mb-8">Currently Working On</h3>
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             <div class="bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg transition-transform hover:scale-105">
               <div class="aspect-video">
@@ -247,7 +247,7 @@
 
         <!-- Featured Projects -->
         <div>
-          <h3 class="text-2xl font-semibold mb-8">Featured Projects</h3>
+          <h3 class="text-2xl text-center font-semibold mb-8">Featured Projects</h3>
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             <!-- DevOps & Cloud -->
             <div class="bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg transition-transform hover:scale-105">
@@ -327,19 +327,56 @@
     <!-- Blog Section -->
     <section id="blog" class="py-20 px-4 md:px-10">
       <div class="max-w-6xl mx-auto">
-        <p class="text-center text-gray-600 dark:text-gray-400">Latest Articles</p>
-        <h2 class="text-4xl font-bold text-center mb-12">My Blog</h2>
+        <p class="text-center text-gray-600 dark:text-gray-400">My Posts</p>
+        <h2 class="text-4xl font-bold text-center mb-12">LinkedIn Articles</h2>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Zero Trust Security Article -->
           <article class="bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg">
-            <img src="./assets/blog1.jpg" alt="Blog post" class="w-full h-48 object-cover">
+            <img src="./assets/zero-trust-security-solutions.png"
+                 alt="Zero Trust Security" 
+                 class="w-full h-48 object-cover">
             <div class="p-6">
-              <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">March 15, 2024</p>
-              <h3 class="text-xl font-semibold mb-2">Getting Started with React</h3>
-              <p class="text-gray-600 dark:text-gray-400 mb-4">A beginner's guide to React development...</p>
-              <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">Read More →</a>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">February 20, 2024</p>
+              <h3 class="text-xl font-semibold mb-2">Zero Trust Security</h3>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">Understanding Zero Trust Security and its implementation in modern cybersecurity...</p>
+              <a href="https://www.linkedin.com/posts/celyne-kydd_zerotrust-cybersecurity-security-activity-7164835167917637632-pO8y" 
+                 target="_blank" 
+                 class="text-blue-600 dark:text-blue-400 hover:underline">Read on LinkedIn →</a>
             </div>
           </article>
-          <!-- Add more blog posts -->
+
+          <!-- Virtualization Post -->
+          <article class="bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg">
+            <img src="./assets/virt.png"
+                 alt="Virtualization" 
+                 class="w-full h-48 object-cover">
+            <div class="p-6">
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">February 15, 2024</p>
+              <h3 class="text-xl font-semibold mb-2">Virtualization in Modern Computing</h3>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">Exploring the fundamentals of virtualization and its impact on IT infrastructure...</p>
+              <a href="https://www.linkedin.com/posts/celyne-kydd_virtualization-cloud-devops-activity-7163551074847727616-ZeOE" 
+                 target="_blank" 
+                 class="text-blue-600 dark:text-blue-400 hover:underline">Read on LinkedIn →</a>
+            </div>
+          </article>
+
+          <!-- Additional LinkedIn Content -->
+          <article class="bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg">
+            <div class="p-6 h-full flex flex-col justify-between">
+              <div>
+                <h3 class="text-xl font-semibold mb-4">More Content</h3>
+                <p class="text-gray-600 dark:text-gray-400 mb-4">Follow me on LinkedIn for more articles about DevOps, Cloud Computing, and Software Development.</p>
+              </div>
+              <a href="https://linkedin.com/in/celyne-kydd" 
+                 target="_blank" 
+                 class="text-blue-600 dark:text-blue-400 hover:underline inline-flex items-center">
+                Visit LinkedIn Profile 
+                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                </svg>
+              </a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
