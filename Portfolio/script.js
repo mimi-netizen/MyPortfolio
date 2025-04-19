@@ -159,16 +159,59 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (!chat.toggle) return;
 
+  // Initialize WebSocket
+  function initWebSocket() {
+    if (chat.ws) return;
+
+    chat.ws = new WebSocket("ws://localhost:5000");
+
+    chat.ws.onopen = () => {
+      console.log("WebSocket Connected");
+      // Make sure the welcome message is displayed in the chat panel
+      chat.messages.innerHTML = `
+        <div class="flex flex-col">
+          <div class="bg-blue-100 dark:bg-gray-700 rounded-lg p-3 max-w-[80%] self-start">
+            <p class="text-sm text-gray-800 dark:text-white">Hi there! How can I help you today?</p>
+          </div>
+        </div>
+      `;
+    };
+
+    chat.ws.onmessage = (event) => {
+      try {
+        const data = JSON.parse(event.data);
+        console.log("Received:", data);
+        
+        if (data.type === "message") {
+          addMessage(data.text, "bot");
+        }
+      } catch (error) {
+        console.error("Error parsing message:", error);
+      }
+    };
+
+    chat.ws.onclose = () => {
+      console.log("WebSocket disconnected. Reconnecting...");
+      chat.ws = null;
+      setTimeout(initWebSocket, 3000);
+    };
+  }
+
   // Toggle Chat Panel
   chat.toggle.addEventListener("click", (e) => {
     e.preventDefault();
+    e.stopPropagation();
+    
     chat.panel.classList.toggle("hidden");
-    chat.toggle
-      .querySelectorAll("svg")
-      .forEach((icon) => icon.classList.toggle("hidden"));
+    const openIcon = chat.toggle.querySelector(".open-icon");
+    const closeIcon = chat.toggle.querySelector(".close-icon");
+    
+    openIcon.classList.toggle("hidden");
+    closeIcon.classList.toggle("hidden");
+
     if (!chat.panel.classList.contains("hidden")) {
       chat.input.focus();
-      initWebSocket();
+      if (!chat.ws) initWebSocket();
     }
   });
 
@@ -206,29 +249,6 @@ document.addEventListener("DOMContentLoaded", function () {
     messageDiv.appendChild(bubble);
     chat.messages.appendChild(messageDiv);
     chat.messages.scrollTop = chat.messages.scrollHeight;
-  }
-
-  function initWebSocket() {
-    if (chat.ws) return;
-
-    chat.ws = new WebSocket("ws://localhost:5000");
-
-    chat.ws.onopen = () => console.log("WebSocket Connected");
-
-    chat.ws.onmessage = (event) => {
-      try {
-        const data = JSON.parse(event.data);
-        if (data.type === "message") addMessage(data.text, "bot");
-      } catch (error) {
-        console.error("Error parsing message:", error);
-      }
-    };
-
-    chat.ws.onclose = () => {
-      console.log("WebSocket disconnected. Reconnecting...");
-      chat.ws = null;
-      setTimeout(initWebSocket, 3000);
-    };
   }
 
   function sendMessage(message) {

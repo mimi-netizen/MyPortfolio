@@ -30,27 +30,30 @@ const wss = new WebSocket.Server({ server });
 wss.on('connection', (ws) => {
   console.log('New WebSocket connection');
 
+  // Send welcome message immediately on connection
+  ws.send(JSON.stringify({
+    type: 'message',
+    text: 'Hi there! How can I help you today?'
+  }));
+
   ws.on('message', (message) => {
     try {
       const data = JSON.parse(message);
       console.log('Received:', data);
 
-      // Broadcast to all clients
-      wss.clients.forEach((client) => {
-        if (client !== ws && client.readyState === WebSocket.OPEN) {
-          client.send(JSON.stringify(data));
-        }
-      });
+      // Echo back messages with a bot-like delay
+      if (data.type === 'message') {
+        setTimeout(() => {
+          ws.send(JSON.stringify({
+            type: 'message',
+            text: `Thanks for your message! You said: "${data.text}"`
+          }));
+        }, 1000);
+      }
     } catch (error) {
       console.error('WebSocket message error:', error);
     }
   });
-
-  // Send welcome message
-  ws.send(JSON.stringify({
-    type: 'message',
-    text: 'Welcome! How can I help you today?'
-  }));
 });
 
 // Routes
