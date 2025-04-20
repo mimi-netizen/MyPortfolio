@@ -166,78 +166,106 @@ function updateNavigationButtons(currentId) {
 
 // Project data for details page
 const projectsData = {
-    5: {
-        title: "DevOps & Cloud",
-        category: "DEVOPS",
-        image: "./assets/project_images/devops.gif",
-        description: "During my time at Steghub, I engaged in an immersive, hands-on learning experience that significantly shaped my DevOps skills. The project-based curriculum allowed me to work on real-world applications, covering essential topics such as cloud infrastructure, continuous integration, and container orchestration. The Steghub DevOps & Cloud Computing repository showcases all the projects I completed while studying there, including implementations of various web stacks and automation using tools like Jenkins, Docker, and Terraform. This practical approach not only solidified my technical knowledge but also prepared me to tackle complex challenges in the field of DevOps.",
-        github: "https://github.com/mimi-netizen/Steghub-DevOps_CloudComputing",
-        website: null
-    },
-    6: {
-        title: "Kikapu Marketplace",
-        category: "E_COMMERCE",
-        image: "./assets/project_images/Untitled_design.gif",
-        description: "Kikapu Marketplace is a full-featured buy/sell platform built with Python/Django that enables seamless interactions between buyers and sellers. The platform features a responsive design with an intuitive user interface where sellers can post detailed product listings with multiple images, specifications, and pricing, while buyers can easily browse, search, and filter listings by categories, locations, and other criteria. Key features include a secure user authentication system, real-time messaging between buyers and sellers, an advanced search functionality with auto-suggestions, image galleries with zoom capabilities, seller profiles with ratings and reviews, and a responsive admin dashboard for content moderation. The project implements modern web practices including mobile-first design, SEO optimization, and performance enhancements through efficient database queries and caching mechanisms.",
-        github: null,
-        website: null
-    },
-    8: {
-        title: "Vaccination Scheduling App",
-        category: "E_COMMERCE",
-        image: "./assets/project_images/v1.gif",
-        description: "I developed a comprehensive web application for managing children's vaccination schedules using Django and Python. The application features a user-friendly interface that enables parents to track vaccine doses, schedule appointments at nearby hospitals and vaccination centers, and receive automated reminders. I implemented key functionalities including a calendar-based scheduling system, vaccination certificate generation, and an information portal about available vaccines. The project demonstrates my proficiency in full-stack development using Python, Django, HTML, CSS, and JavaScript, as well as my ability to create healthcare-focused solutions. The application was successfully deployed on Render, making it accessible to users online through vaccination-scheduling-app.onrender.com.",
-        github: "https://github.com/mimi-netizen/Vaccination-Scheduling-App",
-        website: "https://vaccination-scheduling-app.onrender.com/"
-    },
-    9: {
-        title: "Python Scripts for System Administrators",
-        category: "AUTOMATION",
-        image: "./assets/project_images/like4like.gif",
-        description: "I developed a comprehensive collection of Python automation tools focusing on three key areas: web automation using Selenium, web scraping, and cryptographic operations. The project features advanced implementations including email automation, social media interactions, specialized web scrapers for various platforms (including books, product, and job listing data extraction), and robust cryptographic systems including cipher implementations and security protocols. I demonstrated strong technical expertise by implementing detailed debugging systems, logging mechanisms, and performance monitoring tools across all components. The project showcases my proficiency in Python programming, system administration, and security practices, while emphasizing clean code architecture and comprehensive documentation",
-        github: "https://github.com/mimi-netizen/Python-Scripts",
-        website: null
-    },
-    10: {
-        title: "ChatGPT App Development",
-        category: "AUTOMATION",
-        image: "./assets/project_images/articlegenerator.jpg",
-        description: "I developed a suite of AI-powered applications that leverages ChatGPT, Gemini, and related technologies. This collection includes ten distinct tools ranging from an article generator and chatbot implementation to code analysis tools and image generators. I implemented core functionalities such as API integrations, conversation state management, and automated content generation systems. The project demonstrates my ability to work with modern AI technologies while creating practical applications like text summarizers, automated response systems, and development utilities. I utilized various technologies including Python, HTML, PyQt5, and designed robust error handling and API management systems across all applications.",
-        github: "https://github.com/mimi-netizen/ChatGPT-App-Development",
-        website: null
-    },
-    11: {
-        title: "Face Recognition System",
-        category: "MACHINE_LEARNING",
-        image: "./assets/project_images/fr.gif",
-        description: "I created a face recognition system using Python, OpenCV, and SQLite. This project captures video from a webcam, detects faces in real-time, and recognizes individuals by retrieving their information from a SQLite database. I implemented features such as dataset creation for training and model training scripts, allowing for efficient face recognition. This work not only enhanced my skills in computer vision and database management but also provided a practical application of machine learning techniques.",
-        github: "https://github.com/mimi-netizen/Face-recognition",
-        website: null
-    },
-    12: {
-        title: "Hive",
-        category: "E_COMMERCE",
-        image: "./assets/project_images/outer.jpg",
-        description: "I created Hive, a web platform that enables users to buy and sell various services, such as housekeeping, tutoring, and wellness treatments. Built with Django, this project showcases my skills in web development, allowing potential customers to connect with service providers seamlessly. I implemented features like user authentication, service listings, and payment integration, enhancing the overall user experience. This project not only deepened my understanding of Django and Python but also demonstrated my ability to develop practical applications that meet user needs.",
-        github: "https://github.com/mimi-netizen/Hive",
-        website: "https://hive-81qm.onrender.com/"
-    },
-    13: {
-        title: "Python and Machine Learning in Financial Analysis",
-        category: "OTHER",
-        image: "./assets/project_images/fin.png",
-        description: "This project covers a range of topics, including time series modeling, portfolio optimization, risk assessment, and credit risk prediction. I implemented various methodologies such as GARCH models for volatility forecasting and deep learning applications for financial predictions. This work not only enhanced my skills in data analysis and machine learning but also provided practical insights into financial modeling and risk management strategies.",
-        github: "https://github.com/mimi-netizen/Python-and-Machine-Learning-in-Financial-Analysis",
-        website: null
-    },
-    14: {
-        title: "React Weather App",
-        category: "WEB_DEVELOPMENT",
-        image: "./assets/project_images/weather.gif",
-        description: "This project allows users to seamlessly check weather forecasts for various locations, showcasing my skills in front-end development and API integration. The application is designed to be user-friendly and visually appealing, adapting well to different screen sizes. By leveraging React's component-based architecture, I created an efficient and maintainable codebase, enhancing my understanding of modern web development practices.",
-        github: "https://github.com/mimi-netizen/react-weather-app",
-        website: "https://react-weather-app-two-brown.vercel.app/"
-    }
+  3: {
+    title: "Healthcare Intelligence System",
+    category: "Web Development",
+    image: "./assets/project_images/ai.gif",
+    description:
+      "I've developed an AI-powered Healthcare Intelligence Network that combines multiple machine learning technologies to revolutionize healthcare delivery. My system features disease prediction using Random Forest classifiers, drug recommendations powered by NLP and cosine similarity, heart disease risk assessment using LightGBM, and a medical chatbot powered by Mistral-7B-Instruct LLM. Built primarily with Python and Jupyter Notebook, this comprehensive platform aims to enhance early diagnosis, provide personalized medical recommendations, and offer instant AI-driven healthcare insights through a Streamlit-based interface. The project showcases my ability to integrate advanced machine learning techniques into a cohesive system, demonstrating my skills in data science and AI application development. The Healthcare Intelligence Network is designed to be user-friendly and accessible, making it a valuable tool for both healthcare professionals and patients seeking reliable medical information.",
+    github: "https://github.com/mimi-netizen/Healthcare-AI-System",
+    website: null,
+  },
+  4: {
+    title: "Learning Management System",
+    category: "Web Development",
+    image: "./assets/project_images/lms.gif",
+    description:
+      "I've developed a comprehensive Learning Management System (LMS) using the Django web framework, combining Python, HTML, SCSS, and JavaScript to create a feature-rich educational platform. My project includes essential components like user accounts, course management, quiz functionality, virtual classrooms, and payment integration, making it suitable for both real-world educational organizations and developers looking to enhance their portfolios. The LMS is designed to be user-friendly and responsive, ensuring a seamless experience across devices. I implemented a robust admin dashboard for easy content management and user oversight, along with a secure authentication system to protect sensitive data. This project not only showcases my technical skills but also demonstrates my ability to create practical applications that meet real-world needs.",
+    github: "https://github.com/mimi-netizen/Django-LMS",
+    website: null,
+  },
+  5: {
+    title: "DevOps & Cloud",
+    category: "DEVOPS",
+    image: "./assets/project_images/devops.gif",
+    description:
+      "During my time at Steghub, I engaged in an immersive, hands-on learning experience that significantly shaped my DevOps skills. The project-based curriculum allowed me to work on real-world applications, covering essential topics such as cloud infrastructure, continuous integration, and container orchestration. The Steghub DevOps & Cloud Computing repository showcases all the projects I completed while studying there, including implementations of various web stacks and automation using tools like Jenkins, Docker, and Terraform. This practical approach not only solidified my technical knowledge but also prepared me to tackle complex challenges in the field of DevOps.",
+    github: "https://github.com/mimi-netizen/Steghub-DevOps_CloudComputing",
+    website: null,
+  },
+  6: {
+    title: "Kikapu Marketplace",
+    category: "E_COMMERCE",
+    image: "./assets/project_images/Untitled_design.gif",
+    description:
+      "Kikapu Marketplace is a full-featured buy/sell platform built with Python/Django that enables seamless interactions between buyers and sellers. The platform features a responsive design with an intuitive user interface where sellers can post detailed product listings with multiple images, specifications, and pricing, while buyers can easily browse, search, and filter listings by categories, locations, and other criteria. Key features include a secure user authentication system, real-time messaging between buyers and sellers, an advanced search functionality with auto-suggestions, image galleries with zoom capabilities, seller profiles with ratings and reviews, and a responsive admin dashboard for content moderation. The project implements modern web practices including mobile-first design, SEO optimization, and performance enhancements through efficient database queries and caching mechanisms.",
+    github: null,
+    website: null,
+  },
+  8: {
+    title: "Vaccination Scheduling App",
+    category: "E_COMMERCE",
+    image: "./assets/project_images/v1.gif",
+    description:
+      "I developed a comprehensive web application for managing children's vaccination schedules using Django and Python. The application features a user-friendly interface that enables parents to track vaccine doses, schedule appointments at nearby hospitals and vaccination centers, and receive automated reminders. I implemented key functionalities including a calendar-based scheduling system, vaccination certificate generation, and an information portal about available vaccines. The project demonstrates my proficiency in full-stack development using Python, Django, HTML, CSS, and JavaScript, as well as my ability to create healthcare-focused solutions. The application was successfully deployed on Render, making it accessible to users online through vaccination-scheduling-app.onrender.com.",
+    github: "https://github.com/mimi-netizen/Vaccination-Scheduling-App",
+    website: "https://vaccination-scheduling-app.onrender.com/",
+  },
+  9: {
+    title: "Python Scripts for System Administrators",
+    category: "AUTOMATION",
+    image: "./assets/project_images/like4like.gif",
+    description:
+      "I developed a comprehensive collection of Python automation tools focusing on three key areas: web automation using Selenium, web scraping, and cryptographic operations. The project features advanced implementations including email automation, social media interactions, specialized web scrapers for various platforms (including books, product, and job listing data extraction), and robust cryptographic systems including cipher implementations and security protocols. I demonstrated strong technical expertise by implementing detailed debugging systems, logging mechanisms, and performance monitoring tools across all components. The project showcases my proficiency in Python programming, system administration, and security practices, while emphasizing clean code architecture and comprehensive documentation",
+    github: "https://github.com/mimi-netizen/Python-Scripts",
+    website: null,
+  },
+  10: {
+    title: "ChatGPT App Development",
+    category: "AUTOMATION",
+    image: "./assets/project_images/articlegenerator.jpg",
+    description:
+      "I developed a suite of AI-powered applications that leverages ChatGPT, Gemini, and related technologies. This collection includes ten distinct tools ranging from an article generator and chatbot implementation to code analysis tools and image generators. I implemented core functionalities such as API integrations, conversation state management, and automated content generation systems. The project demonstrates my ability to work with modern AI technologies while creating practical applications like text summarizers, automated response systems, and development utilities. I utilized various technologies including Python, HTML, PyQt5, and designed robust error handling and API management systems across all applications.",
+    github: "https://github.com/mimi-netizen/ChatGPT-App-Development",
+    website: null,
+  },
+  11: {
+    title: "Face Recognition System",
+    category: "MACHINE_LEARNING",
+    image: "./assets/project_images/fr.gif",
+    description:
+      "I created a face recognition system using Python, OpenCV, and SQLite. This project captures video from a webcam, detects faces in real-time, and recognizes individuals by retrieving their information from a SQLite database. I implemented features such as dataset creation for training and model training scripts, allowing for efficient face recognition. This work not only enhanced my skills in computer vision and database management but also provided a practical application of machine learning techniques.",
+    github: "https://github.com/mimi-netizen/Face-recognition",
+    website: null,
+  },
+  12: {
+    title: "Hive",
+    category: "E_COMMERCE",
+    image: "./assets/project_images/outer.jpg",
+    description:
+      "I created Hive, a web platform that enables users to buy and sell various services, such as housekeeping, tutoring, and wellness treatments. Built with Django, this project showcases my skills in web development, allowing potential customers to connect with service providers seamlessly. I implemented features like user authentication, service listings, and payment integration, enhancing the overall user experience. This project not only deepened my understanding of Django and Python but also demonstrated my ability to develop practical applications that meet user needs.",
+    github: "https://github.com/mimi-netizen/Hive",
+    website: "https://hive-81qm.onrender.com/",
+  },
+  13: {
+    title: "Python and Machine Learning in Financial Analysis",
+    category: "OTHER",
+    image: "./assets/project_images/fin.png",
+    description:
+      "This project covers a range of topics, including time series modeling, portfolio optimization, risk assessment, and credit risk prediction. I implemented various methodologies such as GARCH models for volatility forecasting and deep learning applications for financial predictions. This work not only enhanced my skills in data analysis and machine learning but also provided practical insights into financial modeling and risk management strategies.",
+    github:
+      "https://github.com/mimi-netizen/Python-and-Machine-Learning-in-Financial-Analysis",
+    website: null,
+  },
+  14: {
+    title: "React Weather App",
+    category: "WEB_DEVELOPMENT",
+    image: "./assets/project_images/weather.gif",
+    description:
+      "This project allows users to seamlessly check weather forecasts for various locations, showcasing my skills in front-end development and API integration. The application is designed to be user-friendly and visually appealing, adapting well to different screen sizes. By leveraging React's component-based architecture, I created an efficient and maintainable codebase, enhancing my understanding of modern web development practices.",
+    github: "https://github.com/mimi-netizen/react-weather-app",
+    website: "https://react-weather-app-two-brown.vercel.app/",
+  },
 };
 
 // Initialize project details if on the details page
