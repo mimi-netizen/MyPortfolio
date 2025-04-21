@@ -162,3 +162,23 @@ section {
   padding-top: 5rem;
   min-height: calc(100vh - 5rem);
 }
+
+/* Prevent horizontal scrolling */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin: 0 auto;
+}
+
+/* Make sure images don't cause overflow */
+img {
+  max-width: 100%;
+  height: auto;
+}

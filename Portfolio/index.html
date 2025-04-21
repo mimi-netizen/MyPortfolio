@@ -33,52 +33,58 @@
     <!-- Scroll Progress Bar -->
     <div class="scroll-progress"></div>
     
-    <nav class="fixed top-0 w-full bg-white dark:bg-gray-900 shadow-md z-50 py-4">
-      <div class="container mx-auto px-4 flex justify-between items-center">
-        <h1 class="text-xl md:text-2xl font-bold">Celyne Kydd</h1>
-        <div class="flex items-center gap-4 md:gap-8">
-          <!-- Theme Toggle Button -->
-          <button 
-            onclick="toggleTheme()" 
-            class="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-            aria-label="Toggle dark mode"
-          >
-            <!-- Sun icon -->
-            <svg class="w-6 h-6 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
-            </svg>
-            <!-- Moon icon -->
-            <svg class="w-6 h-6 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
-            </svg>
-          </button>
-          <!-- Desktop Menu -->
-          <ul class="hidden md:flex space-x-4 lg:space-x-8">
-            <li><a href="#about" class="hover:text-gray-600 transition-colors">About</a></li>
-            <li><a href="#experience" class="hover:text-gray-600 transition-colors">Experience</a></li>
-            <li><a href="#projects" class="hover:text-gray-600 transition-colors">Projects</a></li>
-            <li><a href="#contact" class="hover:text-gray-600 transition-colors">Contact</a></li>
-          </ul>
-          <!-- Mobile Menu Button -->
-          <button class="md:hidden" onclick="toggleMenu()">
-            <div class="hamburger-icon w-6 h-6 flex flex-col justify-between">
-              <span class="block w-full h-0.5 bg-current"></span>
-              <span class="block w-full h-0.5 bg-current"></span>
-              <span class="block w-full h-0.5 bg-current"></span>
-            </div>
-          </button>
-        </div>
-      </div>
-      <!-- Mobile Menu Panel -->
-      <div id="mobile-menu" class="md:hidden absolute top-full left-0 w-full bg-white dark:bg-gray-900 shadow-lg transform -translate-y-full transition-transform duration-300">
-        <ul class="py-4 px-6 space-y-4">
-          <li><a href="#about" class="block hover:text-gray-600 transition-colors" onclick="toggleMenu()">About</a></li>
-          <li><a href="#experience" class="block hover:text-gray-600 transition-colors" onclick="toggleMenu()">Experience</a></li>
-          <li><a href="#projects" class="block hover:text-gray-600 transition-colors" onclick="toggleMenu()">Projects</a></li>
-          <li><a href="#contact" class="block hover:text-gray-600 transition-colors" onclick="toggleMenu()">Contact</a></li>
+<nav class="fixed top-0 w-full bg-white dark:bg-gray-900 shadow-md z-50 py-4">
+  <div class="container mx-auto px-4 flex justify-between items-center">
+    <h1 class="text-xl md:text-2xl font-bold">Celyne Kydd</h1>
+    <div class="flex items-center gap-4">
+      <!-- Theme Toggle Button -->
+      <button 
+        onclick="toggleTheme()" 
+        class="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+        aria-label="Toggle dark mode"
+      >
+        <!-- Sun icon -->
+        <svg class="w-6 h-6 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+        </svg>
+        <!-- Moon icon -->
+        <svg class="w-6 h-6 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+        </svg>
+      </button>
+
+      <!-- Desktop Navigation Links - Hidden on mobile -->
+      <div class="hidden md:flex">
+        <ul class="flex space-x-8">
+          <li><a href="#about" class="hover:text-gray-600 transition-colors">About</a></li>
+          <li><a href="#experience" class="hover:text-gray-600 transition-colors">Experience</a></li>
+          <li><a href="#projects" class="hover:text-gray-600 transition-colors">Projects</a></li>
+          <li><a href="#contact" class="hover:text-gray-600 transition-colors">Contact</a></li>
         </ul>
       </div>
-    </nav>
+
+      <!-- Mobile Menu Button - Hidden on desktop -->
+      <button class="md:hidden p-2" onclick="toggleMenu()" aria-label="Menu">
+        <div class="hamburger-icon w-6 h-6 flex flex-col justify-between">
+          <span class="block w-full h-0.5 bg-current"></span>
+          <span class="block w-full h-0.5 bg-current"></span>
+          <span class="block w-full h-0.5 bg-current"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Panel -->
+  <div id="mobile-menu" class="md:hidden absolute top-full left-0 w-full bg-white dark:bg-gray-900 shadow-lg transform -translate-y-full transition-transform duration-300">
+    <div class="py-4 px-6 space-y-4">
+      <a href="#about" class="block hover:text-gray-600 transition-colors" onclick="toggleMenu()">About</a>
+      <a href="#experience" class="block hover:text-gray-600 transition-colors" onclick="toggleMenu()">Experience</a>
+      <a href="#projects" class="block hover:text-gray-600 transition-colors" onclick="toggleMenu()">Projects</a>
+      <a href="#contact" class="block hover:text-gray-600 transition-colors" onclick="toggleMenu()">Contact</a>
+    </div>
+  </div>
+</nav>
+
 
     <section id="profile" class="min-h-screen flex flex-col md:flex-row items-center justify-center gap-8 mt-20 px-4 md:px-10">
       <div class="w-64 h-64 md:w-96 md:h-96 relative bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
@@ -469,11 +475,11 @@
           </div>
           <div>
             <h3 class="text-xl font-bold mb-4">Newsletter</h3>
-            <form id="newsletter-form" class="flex gap-2">
+            <form id="newsletter-form" class="flex flex-col sm:flex-row gap-2">
               <input type="email" placeholder="Enter your email" required 
-                class="flex-1 p-2 rounded bg-gray-700 dark:bg-gray-800 focus:ring-2 focus:ring-gray-400">
+                class="w-full sm:w-auto flex-1 p-2 rounded bg-gray-700 dark:bg-gray-800 focus:ring-2 focus:ring-gray-400">
               <button type="submit" 
-                class="px-4 py-2 bg-white text-gray-800 rounded hover:bg-gray-100 transition-colors">
+                class="w-full sm:w-auto px-4 py-2 bg-white text-gray-800 rounded hover:bg-gray-100 transition-colors">
                 Subscribe
               </button>
             </form>
