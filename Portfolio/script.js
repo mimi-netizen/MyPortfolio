@@ -173,7 +173,7 @@ const projectsData = {
     description:
       "I've developed an AI-powered Healthcare Intelligence Network that combines multiple machine learning technologies to revolutionize healthcare delivery. My system features disease prediction using Random Forest classifiers, drug recommendations powered by NLP and cosine similarity, heart disease risk assessment using LightGBM, and a medical chatbot powered by Mistral-7B-Instruct LLM. Built primarily with Python and Jupyter Notebook, this comprehensive platform aims to enhance early diagnosis, provide personalized medical recommendations, and offer instant AI-driven healthcare insights through a Streamlit-based interface. The project showcases my ability to integrate advanced machine learning techniques into a cohesive system, demonstrating my skills in data science and AI application development. The Healthcare Intelligence Network is designed to be user-friendly and accessible, making it a valuable tool for both healthcare professionals and patients seeking reliable medical information.",
     github: "https://github.com/mimi-netizen/Healthcare-AI-System",
-    website: null,
+    website: "https://healthcare-ai-system.streamlit.app/",
   },
   4: {
     title: "Learning Management System",
